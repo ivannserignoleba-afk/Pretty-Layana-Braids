@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pretty Layana Braids — vente de mèches et accessoires de coiffure à Abidjan.">
+  <title>Pretty Layana Braids | Mèches & Beauté</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">✨ Pretty Layana Braids — Sublimez votre style, une mèche à la fois.</div>
+  <header class="header">
+    <a class="brand" href="#accueil" aria-label="Pretty Layana Braids">
+      <span class="logo"><span>PL</span><i></i></span>
+      <span><strong>Pretty Layana</strong><small>BRAIDS</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">☰</button>
+    <nav id="nav">
+      <a href="#accueil">Accueil</a><a href="#boutique">Boutique</a><a href="#apropos">À propos</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/2250757422805?text=Bonjour%20Pretty%20Layana%20Braids%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20m%C3%A8ches." target="_blank">WhatsApp ↗</a>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-copy">
+        <p class="eyebrow">BEAUTÉ • STYLE • ÉLÉGANCE</p>
+        <h1>Des mèches qui<br><em>racontent</em> votre style.</h1>
+        <p class="hero-text">Découvrez notre sélection de mèches pour tresses, nattes et coiffures tendance. Un style unique commence par le bon choix.</p>
+        <div class="hero-actions"><a class="btn primary" href="#boutique">Découvrir la collection <span>→</span></a><a class="text-link" href="https://wa.me/2250757422805?text=Bonjour%20Pretty%20Layana%20Braids%2C%20je%20veux%20commander%20des%20m%C3%A8ches." target="_blank">Commander sur WhatsApp ↗</a></div>
+        <div class="trust"><span>✓</span> Réponse rapide sur WhatsApp <span>•</span> Abidjan</div>
+      </div>
+      <div class="hero-art">
+        <div class="arch"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=900&q=85" alt="Coiffure avec tresses élégantes"></div>
+        <div class="floating-card"><b>NEW</b><span>Collection<br>Pretty Layana</span></div>
+        <div class="circle-text">PRETTY • LAYANA • BRAIDS •</div>
+      </div>
+    </section>
+
+    <section class="features"><div><strong>01</strong><span>Qualité<br>sélectionnée</span></div><div><strong>02</strong><span>Styles<br>tendance</span></div><div><strong>03</strong><span>Commande<br>facile</span></div><div><strong>04</strong><span>Abidjan<br>7e tranche</span></div></section>
+
+    <section class="shop" id="boutique">
+      <div class="section-head"><div><p class="eyebrow">NOTRE SÉLECTION</p><h2>Choisissez votre <em>mèche.</em></h2></div><p>Une sélection pensée pour vos envies de tresses, nattes et looks protecteurs.</p></div>
+      <div class="filters"><button class="filter active" data-filter="all">Toutes</button><button class="filter" data-filter="tresse">Tresses</button><button class="filter" data-filter="natte">Nattes</button><button class="filter" data-filter="premium">Premium</button></div>
+      <div class="products">
+        <article class="product" data-category="tresse"><div class="product-img"><img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&w=700&q=85" alt="Mèches pour tresses"><span class="tag">BEST SELLER</span></div><div class="product-info"><div><h3>Golden Braid</h3><p>Mèches • Tresses</p></div><button onclick="order('Golden Braid')">Commander ↗</button></div></article>
+        <article class="product" data-category="premium"><div class="product-img"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=700&q=85" alt="Mèches premium"><span class="tag">PREMIUM</span></div><div class="product-info"><div><h3>Silky Touch</h3><p>Mèches • Premium</p></div><button onclick="order('Silky Touch')">Commander ↗</button></div></article>
+        <article class="product" data-category="natte"><div class="product-img"><img src="https://images.unsplash.com/photo-1534297635766-a262cdcb8ee4?auto=format&fit=crop&w=700&q=85" alt="Mèches pour nattes"><span class="tag">TENDANCE</span></div><div class="product-info"><div><h3>Natural Chic</h3><p>Mèches • Nattes</p></div><button onclick="order('Natural Chic')">Commander ↗</button></div></article>
+        <article class="product" data-category="tresse"><div class="product-img"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=85" alt="Style de tresses"><span class="tag">NOUVEAU</span></div><div class="product-info"><div><h3>Velvet Braids</h3><p>Mèches • Tresses</p></div><button onclick="order('Velvet Braids')">Commander ↗</button></div></article>
+      </div>
+      <div class="catalog-note">Vous cherchez une couleur, une longueur ou un modèle précis ? <a href="https://wa.me/2250757422805?text=Bonjour%20Pretty%20Layana%20Braids%2C%20je%20cherche%20un%20mod%C3%A8le%20de%20m%C3%A8ches%20pr%C3%A9cis." target="_blank">Écrivez-nous sur WhatsApp →</a></div>
+    </section>
+
+    <section class="about" id="apropos"><div class="about-img"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85" alt="Univers beauté Pretty Layana"></div><div class="about-copy"><p class="eyebrow">L'UNIVERS PRETTY LAYANA</p><h2>Votre beauté.<br><em>Votre signature.</em></h2><p>Pretty Layana Braids vous accompagne dans vos choix de mèches pour créer des coiffures qui vous ressemblent. Notre priorité : vous proposer des produits et un service avec une vraie attention aux détails.</p><a class="btn dark" href="https://wa.me/2250757422805?text=Bonjour%20Pretty%20Layana%20Braids%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20produits." target="_blank">Parler à Pretty Layana <span>→</span></a></div></section>
+
+    <section class="contact" id="contact"><div><p class="eyebrow">NOUS TROUVER</p><h2>On vous attend<br><em>à Abidjan.</em></h2></div><div class="contact-grid"><div><span class="icon">⌖</span><h3>Adresse</h3><p>Angré KFC — 8e tranche<br>Quartier de la 7ème Tranche, 549<br>Abidjan</p><a href="https://www.google.com/maps/search/?api=1&query=92Q9%2B8XR%20Abidjan" target="_blank">Voir sur Google Maps ↗</a><a href="https://yango.com/" target="_blank">Itinéraire Yango ↗</a></div><div><span class="icon">◌</span><h3>Contact</h3><p>07 57 42 28 05<br>koliaerica@gmail.com</p><a href="tel:+2250757422805">Appeler ↗</a><a href="mailto:koliaerica@gmail.com">Envoyer un email ↗</a></div></div></section>
+  </main>
+  <footer><div class="brand"><span class="logo"><span>PL</span><i></i></span><span><strong>Pretty Layana</strong><small>BRAIDS</small></span></div><p>© 2026 Pretty Layana Braids. Tous droits réservés.</p><a href="https://wa.me/2250757422805?text=Bonjour%20Pretty%20Layana%20Braids%20%F0%9F%8C%B8" target="_blank" class="whatsapp">WhatsApp</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
