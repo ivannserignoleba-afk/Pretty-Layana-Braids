@@ -1,23 +1,17 @@
 const menuBtn=document.getElementById('menuBtn');
 const nav=document.getElementById('nav');
+if(menuBtn&&nav){menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));}
 
-if(menuBtn&&nav){
-  menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));
-  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-}
+const logoSVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="Pretty Layana Braids"><circle cx="60" cy="60" r="43" fill="none" stroke="#df5b83" stroke-width="2"/><text x="60" y="69" text-anchor="middle" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#df5b83">PL</text><g fill="none" stroke="#df5b83" stroke-width="4" stroke-linecap="round"><path d="M91 22c-20 9-27 27-20 43 6 14 19 23 10 43"/><path d="M101 27c-17 10-22 25-17 39 5 14 15 23 8 39"/><path d="M110 34c-14 10-17 23-13 35 4 12 10 19 5 32"/><path d="M116 42c-9 9-11 19-8 28 3 9 7 15 3 25"/></g><text x="140" y="57" font-family="Georgia,serif" font-weight="700" font-size="31" fill="#231f20">Pretty Layana</text><text x="143" y="82" font-family="Arial,sans-serif" font-weight="700" font-size="12" letter-spacing="7" fill="#df5b83">BRAIDS</text><path d="M141 92h165" stroke="#df5b83" stroke-width="1"/></svg>`;
+document.querySelectorAll('.brand-logo').forEach(b=>b.innerHTML=logoSVG);
+document.querySelectorAll('.brand-logo svg').forEach(s=>{s.style.width='100%';s.style.height='100%';s.style.display='block';});
 
-const logoSVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="Pretty Layana Braids">
-<circle cx="60" cy="60" r="43" fill="none" stroke="#df5b83" stroke-width="2"/><text x="60" y="69" text-anchor="middle" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#df5b83">PL</text>
-<g fill="none" stroke="#df5b83" stroke-width="4" stroke-linecap="round"><path d="M91 22c-20 9-27 27-20 43 6 14 19 23 10 43"/><path d="M101 27c-17 10-22 25-17 39 5 14 15 23 8 39"/><path d="M110 34c-14 10-17 23-13 35 4 12 10 19 5 32"/><path d="M116 42c-9 9-11 19-8 28 3 9 7 15 3 25"/></g>
-<text x="140" y="57" font-family="Georgia,serif" font-weight="700" font-size="31" fill="#231f20">Pretty Layana</text><text x="143" y="82" font-family="Arial,sans-serif" font-weight="700" font-size="12" letter-spacing="7" fill="#df5b83">BRAIDS</text><path d="M141 92h165" stroke="#df5b83" stroke-width="1"/></svg>`;
+// Affichage des mèches directement dans les cartes, sans dépendre du JPG sprite ni d'un chemin externe.
+const names=['CURLY BRAID','SUPER MARLEY','LOLI','GANDA','KINKY','NOURA CURL','SANJA','SUZY','PASSION TWIST','VIVI','KINKY LONG','JUMBO BRAID','REINA','GODDESS'];
+const tones=['#6b3f32','#241b21','#3f2520','#8a5b3d','#33221e','#9b6548','#4b3027','#6f4938','#3a2722','#a46f51','#2b201d','#74452f','#4a2b24','#8b6047'];
+function makeMècheSvg(name,i){const tone=tones[i]||'#4b3027';let paths='';for(let n=0;n<5;n++){const x=120+n*90;paths+=`<path d="M${x} 90 C${x-80} 190 ${x+90} 230 ${x-10} 330 S${x+90} 500 ${x} 610"/>`;}return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700"><defs><linearGradient id="g${i}" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1c1515"/><stop offset=".55" stop-color="${tone}"/><stop offset="1" stop-color="#c58b68"/></linearGradient></defs><rect width="600" height="700" fill="#f8ebe7"/><circle cx="300" cy="320" r="250" fill="#fff" opacity=".45"/><g fill="none" stroke="url(#g${i})" stroke-width="34" stroke-linecap="round">${paths}</g><rect x="45" y="45" width="510" height="70" rx="35" fill="#fff" opacity=".9"/><text x="300" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#241b21">${name}</text></svg>`;}
 
-document.querySelectorAll('.brand-logo').forEach(brand=>brand.innerHTML=logoSVG);
-document.querySelectorAll('.brand-logo svg').forEach(svg=>{svg.style.width='100%';svg.style.height='100%';svg.style.display='block';});
-
-// Images locales : le catalogue ne dépend plus du JPG sprite.
-const productImages=['assets/curly-braid.svg','assets/super-marley.svg','assets/loli.svg','assets/ganda.svg','assets/kinky.svg','assets/noura-curl.svg','assets/sanja.svg','assets/suzy.svg','assets/passion-twist.svg','assets/curly-braid.svg','assets/kinky.svg','assets/super-marley.svg','assets/loli.svg','assets/noura-curl.svg'];
-document.querySelectorAll('.product-sprite').forEach((card,index)=>{const image=productImages[index];if(image){card.style.backgroundImage=`url('${image}')`;card.style.backgroundSize='cover';card.style.backgroundPosition='center';card.style.backgroundRepeat='no-repeat';}});
+document.querySelectorAll('.product-sprite').forEach((card,i)=>{const svg=makeMècheSvg(names[i]||'MÈCHES',i);const img=document.createElement('img');img.alt=names[i]||'Mèches';img.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);img.style.cssText='display:block;width:100%;height:100%;min-height:245px;object-fit:cover;object-position:center;';card.style.background='none';card.innerHTML='';card.appendChild(img);});
 
 function order(product){const message=`Bonjour Pretty Layana Braids 🌸\nJe suis intéressé(e) par la mèche : ${product}.\nPouvez-vous m'envoyer le prix et les disponibilités ?`;window.open('https://wa.me/2250757422805?text='+encodeURIComponent(message),'_blank');}
-
 document.querySelectorAll('.filter').forEach(button=>{button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');const category=button.dataset.filter;document.querySelectorAll('.product').forEach(product=>product.classList.toggle('hidden',category!=='all'&&product.dataset.category!==category));});});
